@@ -1,0 +1,18 @@
+[Screen]
+screen_width = 1024
+screen_height = 768
+
+[Graphics]
+fps = 30
+tile_size = 50
+
+[Map]
+map_pos_x = 0
+map_pos_y = 100
+map_rows = 12
+map_cols = 30
+
+[Physics]
+gravity = false
+
+
