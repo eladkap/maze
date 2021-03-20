@@ -1,6 +1,6 @@
 class Infotron extends Entity {
-  constructor(row, col, width, image, symbol, speed, map, murphy) {
-    super(row, col, width, image, symbol, speed, map, murphy);
+  constructor(row, col, width, image, symbol, speed, map) {
+    super(row, col, width, image, symbol, speed, map);
   }
 
   Draw(refPos) {

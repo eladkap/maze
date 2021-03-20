@@ -3,7 +3,7 @@ This class represents a moving object
 */
 
 class Entity extends Tile {
-  constructor(row, col, width, image, symbol, speed, map, murphy) {
+  constructor(row, col, width, image, symbol, speed, map) {
     super(row, col, width, image, symbol);
     this.originalRow = row;
     this.originalCol = col;

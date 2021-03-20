@@ -77,6 +77,17 @@ const TILE_EXIT = 'E';
 
 const GRAVITY = false;
 
+const STONE_COLORS = {
+  a: AQUA,
+  b: BLUE,
+  g: GREEN,
+  n: NAVY,
+  p: PURPLE,
+  r: RED,
+  o: ORANGE,
+  y: YELLOW,
+};
+
 // const TILE_DICTIONARY = {
 //   0: TILE_EMPTY,
 //   1: TILE_ZONK,

@@ -130,8 +130,7 @@ class Game {
             null,
             MURPHY_SYMBOL,
             MURPHY_SPEED,
-            this.map,
-            null
+            this.map
           );
           this.map.matrix[i][j] = null;
         }
@@ -145,14 +144,6 @@ class Game {
         let mapVal = this.map.GetValue(i, j);
         if (mapVal == TILE_EMPTY) {
           this.map.matrix[i][j] = null;
-        } else if (mapVal == mapVal.toLowerCase()) {
-          this.map.matrix[i][j] = new Stone(
-            i,
-            j,
-            TILE_SIZE,
-            null,
-            STONE_SYMBOLSS[mapVal]
-          );
         } else if (mapVal == TILE_FRAME) {
           this.map.matrix[i][j] = new Wall(
             i,
@@ -177,8 +168,17 @@ class Game {
             tileImages['zonk'],
             ZONK_SYMBOL,
             MURPHY_SPEED,
-            this.map,
-            this.murphy
+            this.map
+          );
+        } else if (mapVal >= 'a' && mapVal <= 'z') {
+          this.map.matrix[i][j] = new Stone(
+            i,
+            j,
+            TILE_SIZE,
+            null,
+            mapVal,
+            MURPHY_SPEED,
+            this.map
           );
         } else if (mapVal == TILE_INFOTRON) {
           this.map.matrix[i][j] = new Infotron(
@@ -188,8 +188,7 @@ class Game {
             tileImages['infotron'],
             INFOTRON_SYMBOL,
             MURPHY_SPEED,
-            this.map,
-            this.murphy
+            this.map
           );
         } else if (mapVal == TILE_EXIT) {
           this.map.matrix[i][j] = new Exit(
@@ -338,9 +337,18 @@ class Game {
     }
     // Zonk
     if (className == 'Zonk') {
-      this.HandleTilePushHorizotalOnly(tile, direction);
+      // this.HandleTilePushHorizotalOnly(tile, direction);
+      this.HandleTilePushHorizotalOrVertical(tile, direction);
       return;
     }
+    // Stone
+    if (className == 'Stone') {
+      // this.HandleTilePushHorizotalOnly(tile, direction);
+      this.HandleTilePushHorizotalOrVertical(tile, direction);
+      tile.CheckNeighbors();
+      return;
+    }
+
     this.murphy.GotoDirection(direction);
   }
 
@@ -362,6 +370,7 @@ class Game {
     if (tile == null) {
       return false;
     }
+    console.log(tile);
     let className = tile.constructor.name;
     if (className == 'Infotron') {
       this.map.matrix[tile.Row][tile.Col] = null;

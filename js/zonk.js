@@ -1,6 +1,6 @@
 class Zonk extends Entity {
-  constructor(row, col, width, image, symbol, speed, map, murphy) {
-    super(row, col, width, image, symbol, speed, map, murphy);
+  constructor(row, col, width, image, symbol, speed, map) {
+    super(row, col, width, image, symbol, speed, map);
     this.angle = 0;
   }
 
@@ -15,6 +15,8 @@ class Zonk extends Entity {
       );
     }
   }
+
+  // Update() {}
 
   Move() {
     if (GRAVITY) {

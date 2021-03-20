@@ -1,6 +1,6 @@
 class Murphy extends Entity {
-  constructor(row, col, width, image, symbol, speed, map, murphy) {
-    super(row, col, width, image, symbol, speed, map, murphy);
+  constructor(row, col, width, image, symbol, speed, map) {
+    super(row, col, width, image, symbol, speed, map);
   }
 
   Draw(refPos) {
@@ -86,10 +86,7 @@ class Murphy extends Entity {
 
   CanPushLeft() {
     let tile = this.map.GetValue(this.row, this.col - 1);
-    let tilePushable =
-      tile instanceof Zonk ||
-      tile instanceof OrangeBomb ||
-      tile instanceof YellowBomb;
+    let tilePushable = tile instanceof Zonk || tile instanceof Stone;
     return (
       this.col - 2 >= 0 &&
       tilePushable &&
@@ -99,10 +96,7 @@ class Murphy extends Entity {
 
   CanPushRight() {
     let tile = this.map.GetValue(this.row, this.col + 1);
-    let tilePushable =
-      tile instanceof Zonk ||
-      tile instanceof OrangeBomb ||
-      tile instanceof YellowBomb;
+    let tilePushable = tile instanceof Zonk || tile instanceof Stone;
     return (
       this.col + 2 < this.map.Cols &&
       tilePushable &&
@@ -112,10 +106,7 @@ class Murphy extends Entity {
 
   CanPushUp() {
     let tile = this.map.GetValue(this.row - 1, this.col);
-    let tilePushable =
-      tile instanceof Zonk ||
-      tile instanceof OrangeBomb ||
-      tile instanceof YellowBomb;
+    let tilePushable = tile instanceof Zonk || tile instanceof Stone;
     return (
       this.row - 2 >= 0 &&
       tilePushable &&
@@ -125,57 +116,10 @@ class Murphy extends Entity {
 
   CanPushDown() {
     let tile = this.map.GetValue(this.row + 1, this.col);
-    let tilePushable =
-      tile instanceof Zonk ||
-      tile instanceof OrangeBomb ||
-      tile instanceof YellowBomb;
+    let tilePushable = tile instanceof Zonk || tile instanceof Stone;
     return (
       this.row + 1 < this.map.Cols &&
       tilePushable &&
-      this.map.GetValue(this.row + 2, this.col) == null
-    );
-  }
-
-  CanPassRight() {
-    return (
-      this.col + 2 < this.map.Cols &&
-      this.map.GetValue(this.row, this.col + 1) instanceof Port &&
-      ['right', 'dual_h', 'cross'].includes(
-        this.map.GetValue(this.row, this.col + 1).type
-      ) &&
-      this.map.GetValue(this.row, this.col + 2) == null
-    );
-  }
-
-  CanPassLeft() {
-    return (
-      this.col - 2 >= 0 &&
-      this.map.GetValue(this.row, this.col - 1) instanceof Port &&
-      ['left', 'dual_h', 'cross'].includes(
-        this.map.GetValue(this.row, this.col - 1).type
-      ) &&
-      this.map.GetValue(this.row, this.col - 2) == null
-    );
-  }
-
-  CanPassUp() {
-    return (
-      this.row - 2 >= 0 &&
-      this.map.GetValue(this.row - 1, this.col) instanceof Port &&
-      ['up', 'dual_v', 'cross'].includes(
-        this.map.GetValue(this.row - 1, this.col).type
-      ) &&
-      this.map.GetValue(this.row - 2, this.col) == null
-    );
-  }
-
-  CanPassDown() {
-    return (
-      this.row + 2 < this.map.Rows &&
-      this.map.GetValue(this.row + 1, this.col) instanceof Port &&
-      ['down', 'dual_v', 'cross'].includes(
-        this.map.GetValue(this.row + 1, this.col).type
-      ) &&
       this.map.GetValue(this.row + 2, this.col) == null
     );
   }
