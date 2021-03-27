@@ -345,7 +345,13 @@ class Game {
     if (className == 'Stone') {
       // this.HandleTilePushHorizotalOnly(tile, direction);
       this.HandleTilePushHorizotalOrVertical(tile, direction);
-      tile.CheckNeighbors();
+      let mergedTiles = tile.CheckNeighbors();
+      if (mergedTiles.length > 0) {
+        // Sleep(1000);
+        mergedTiles.forEach((mergedTile) => {
+          this.map.SetValue(mergedTile.Row, mergedTile.Col, null);
+        });
+      }
       return;
     }
 

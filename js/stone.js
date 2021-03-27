@@ -33,38 +33,50 @@ class Stone extends Entity {
   }
 
   CheckNeighbors() {
-    return;
-
+    let tileSet = new Set();
     // right
     if (
+      this.map.GetValue(this.row, this.col + 1) != null &&
       this.col + 1 < this.map.Cols &&
       this.map.GetValue(this.row, this.col + 1).symbol == this.symbol
     ) {
       console.log('R');
+      tileSet.add(this.map.GetValue(this.row, this.col + 1));
+      tileSet.add(this);
     }
 
     // left
     if (
+      this.map.GetValue(this.row, this.col - 1) != null &&
       this.col - 1 >= 0 &&
       this.map.GetValue(this.row, this.col - 1).symbol == this.symbol
     ) {
       console.log('L');
+      tileSet.add(this.map.GetValue(this.row, this.col - 1));
+      tileSet.add(this);
     }
 
     // top
     if (
+      this.map.GetValue(this.row + 1, this.col) != null &&
       this.row + 1 < this.map.Rows &&
       this.map.GetValue(this.row + 1, this.col).symbol == this.symbol
     ) {
       console.log('T');
+      tileSet.add(this.map.GetValue(this.row + 1, this.col));
+      tileSet.add(this);
     }
 
     // bottom
     if (
+      this.map.GetValue(this.row - 1, this.col) != null &&
       this.row - 1 >= 0 &&
       this.map.GetValue(this.row - 1, this.col) == this.symbol
     ) {
       console.log('B');
+      tileSet.add(this.map.GetValue(this.row - 1, this.col));
+      tileSet.add(this);
     }
+    return Array.from(tileSet);
   }
 }
