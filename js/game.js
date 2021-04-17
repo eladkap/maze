@@ -96,15 +96,13 @@ class Game {
   }
 
   SetCamera() {
-    // let mapPosX = int(config.Get('map_pos_x'));
-    // let mapPosY = int(config.Get('map_pos_y'));
-    // let screenWidth = int(config.Get('screen_width'));
-    // let screenHeight = int(config.Get('screen_height'));
     this.cam = new Camera(
       MAP_POS_X,
       MAP_POS_Y,
-      SCORE_BOARD_WIDTH,
-      SCREEN_HEIGHT
+      SCREEN_WIDTH,
+      SCREEN_HEIGHT,
+      this.map.Rows,
+      this.map.Cols
     );
   }
 

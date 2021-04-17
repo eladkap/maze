@@ -4,7 +4,7 @@ screen_height = 768
 
 [Graphics]
 fps = 30
-tile_size = 50
+tile_size = 25
 
 [Map]
 map_pos_x = 0
@@ -13,6 +13,6 @@ map_rows = 12
 map_cols = 30
 
 [Physics]
-gravity = false
+gravity = true
 
 

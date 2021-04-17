@@ -9,13 +9,13 @@ class Camera {
   width: camera width in pixels
   height: camera height in pixels
   */
-  constructor(x, y, width, height) {
+  constructor(x, y, width, height, rows, cols) {
     this.pos = createVector(x, y);
     this.topLeft = createVector(x, y);
     this.width = width;
     this.height = height;
-    this.mapWidth = int(config.Get('tile_size')) * int(config.Get('map_cols'));
-    this.mapHeight = int(config.Get('tile_size')) * int(config.Get('map_rows'));
+    this.mapWidth = TILE_SIZE * cols;
+    this.mapHeight = TILE_SIZE * rows;
   }
 
   get Width() {

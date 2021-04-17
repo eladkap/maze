@@ -1,16 +1,17 @@
 /* Screen settings */
-const SCREEN_WIDTH = 1024;
-const SCREEN_HEIGHT = 768;
+// 1024x768
+const SCREEN_WIDTH = 1200;
+const SCREEN_HEIGHT = 800;
 
 const FPS = 30;
-const TILE_SIZE = 25;
+const TILE_SIZE = 50;
 
 /* Map settings */
 const MAP_POS_X = 0;
 const MAP_POS_Y = 100;
 
-const MAP_ROWS = 12;
-const MAP_COLS = 30;
+// const MAP_ROWS = 12;
+// const MAP_COLS = 30;
 
 // const MAP_WIDTH = MAP_COLS * TILE_SIZE;
 // const MAP_HEIGHT = MAP_ROWS * TILE_SIZE;

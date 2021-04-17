@@ -34,7 +34,7 @@ function preload() {
   demoLevel = LoadLevelFromTileMap(DEMO_LEVEL_FILE);
   levelDataObj = LoadLevelsDataFile(LEVELS_DATA_FILE_PATH);
   LoadImages();
-  LoadConfig();
+  // LoadConfig();
   ConsoleLog('Game was loaded.');
 }
 
@@ -75,7 +75,7 @@ function draw() {
 
   // Draw graphics
   background(BLACK);
-  game.Update();
+
   if (game.State == GAME_READY) {
     DisplayReady();
   }
@@ -85,6 +85,7 @@ function draw() {
   if (game.State == GAME_BUSTED) {
     DisplayBusted();
   }
+  game.Update();
 
   // Play sound
 }
