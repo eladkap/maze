@@ -20,6 +20,7 @@ class ScoreBoard {
     this.timerSeconds = 0;
     this.timerMinutes = 0;
     this.timerHours = 0;
+    this.msg = '';
     this.timerOn = false;
   }
 
@@ -77,6 +78,10 @@ class ScoreBoard {
     this.timerOn = false;
   }
 
+  SetMessage(msg) {
+    this.msg = msg;
+  }
+
   Draw() {
     /* Draw scoreboard */
     noStroke();
@@ -85,7 +90,7 @@ class ScoreBoard {
     textStyle(NORMAL);
     fill(WHITE);
     text(
-      `Level: ${this.levelNumber}\t--${this.levelTitle}--\t${INFOTRON_SYMBOL}: ${this.infotronsCollected}/${this.infotronsRequired}\t Time: ${this.Time}`,
+      `Level: ${this.levelNumber}\t--${this.levelTitle}--\t${INFOTRON_SYMBOL}: ${this.infotronsCollected}/${this.infotronsRequired}\t Time: ${this.Time}\n\t\t${this.msg}`,
       this.x,
       this.y
     );

@@ -143,9 +143,11 @@ const TILE_IMAGE_DICT = {
   zonk: 'images/modern/zonk.png',
   wall: 'images/modern/wall.png',
   exit: 'images/modern/exit.png',
+  exit_clear: 'images/modern/exit_clear.png',
 };
 
-const DEMO_LEVEL_FILE = 'data/level_demo.txt';
+const DEMO_EASY_LEVEL_FILE = 'data/level_demo_easy.txt';
+const DEMO_HARD_LEVEL_FILE = 'data/level_demo_hard.txt';
 const LEVELS_DATA_FILE_PATH = 'data/LEVELS.DAT';
 
 const BYTES_PER_LEVEL = 1536;

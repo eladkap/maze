@@ -56,13 +56,15 @@ class Tile {
   //#region Methods
   Draw(refPos) {
     /* Draw tile refer to refPos */
-    image(
-      this.image,
-      this.pos.x + refPos.x + this.width / 2,
-      this.pos.y + refPos.y + this.width / 2,
-      this.width,
-      this.width
-    );
+    if (this.visible) {
+      image(
+        this.image,
+        this.pos.x + refPos.x + this.width / 2,
+        this.pos.y + refPos.y + this.width / 2,
+        this.width,
+        this.width
+      );
+    }
   }
 
   Update() {}
@@ -71,8 +73,20 @@ class Tile {
 
   Stop() {}
 
+  Hide() {
+    this.visible = false;
+  }
+
+  Show() {
+    this.visible = true;
+  }
+
   SetSymbol(symbol) {
     this.symbol = symbol;
+  }
+
+  SetImage(image) {
+    this.image = image;
   }
 
   SetVisible(value) {

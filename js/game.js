@@ -8,6 +8,7 @@ class Game {
     this.scoreBoard = null;
     this.map = null;
     this.cam = null;
+    this.exitTile = null;
   }
 
   //#region Properties
@@ -79,7 +80,24 @@ class Game {
     this.state = state;
   }
 
+  CalcInfotronsRequired() {
+    let infotronsRequired = 0;
+    for (let row = 0; row < this.map.Rows; row++) {
+      for (let col = 0; col < this.map.Cols; col++) {
+        if (
+          this.map.GetValue(row, col) != null &&
+          this.map.GetValue(row, col).constructor.name == 'Stone'
+        ) {
+          infotronsRequired++;
+        }
+      }
+    }
+    return infotronsRequired;
+  }
+
   SetScoreBoard() {
+    // count infotrons required according to stones number
+    let infotronsRequired = this.CalcInfotronsRequired();
     this.scoreBoard = new ScoreBoard(
       SCORE_BOARD_POS_X,
       SCORE_BOARD_POS_Y,
@@ -87,7 +105,7 @@ class Game {
       SCORE_BOARD_HEIGHT,
       this.level.Number,
       this.level.Title,
-      this.level.InfotronsRequired
+      infotronsRequired
     );
   }
 
@@ -196,6 +214,7 @@ class Game {
             tileImages['exit'],
             EXIT_SYMBOL
           );
+          this.exitTile = this.map.matrix[i][j];
         }
       }
     }
@@ -224,17 +243,6 @@ class Game {
       }
     }
     return false;
-  }
-
-  CheckMurphyCollidesExit() {
-    for (let i = this.tiles.length - 1; i >= 0; i--) {
-      if (this.murphy.Collide(this.tiles[i])) {
-        if (this.tiles[i] instanceof Exit) {
-          console.log('Exit!');
-          return;
-        }
-      }
-    }
   }
 
   SetWallsColor(color) {
@@ -418,6 +426,9 @@ class Game {
 
   ExitLevel() {
     console.log('Exit level');
+    this.murphy.Hide();
+    this.scoreBoard.SetMessage('Level completed!');
+    noLoop();
   }
 
   TryExitLevel() {
@@ -438,6 +449,11 @@ class Game {
     if (className == 'Infotron') {
       this.map.matrix[tile.Row][tile.Col] = null;
       this.scoreBoard.IncrementInfotronsCollected();
+      if (
+        this.scoreBoard.infotronsCollected == this.scoreBoard.infotronsRequired
+      ) {
+        this.exitTile.SetImage(tileImages['exit_clear']);
+      }
       return false;
     }
   }
@@ -468,12 +484,7 @@ class Game {
       for (let i = 0; i < this.map.Rows; i++) {
         for (let j = 0; j < this.map.Cols; j++) {
           let tile = this.map.matrix[i][j];
-          if (tile instanceof Base) {
-            if (tile.Row == location[0] && tile.Col == location[1]) {
-              this.map.SetValue(location[0], location[1], null);
-              return;
-            }
-          } else if (tile instanceof Infotron) {
+          if (tile instanceof Infotron) {
             if (
               tile.Row == location[0] &&
               tile.Col == location[1] &&
