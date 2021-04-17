@@ -10,12 +10,6 @@ const TILE_SIZE = 50;
 const MAP_POS_X = 0;
 const MAP_POS_Y = 100;
 
-// const MAP_ROWS = 12;
-// const MAP_COLS = 30;
-
-// const MAP_WIDTH = MAP_COLS * TILE_SIZE;
-// const MAP_HEIGHT = MAP_ROWS * TILE_SIZE;
-
 // LERP settings - Linear Interpolation - Animation movement unit
 const LERP_UNIT_SLOW = 0.1;
 const LERP_UNIT_NORMAL = 0.2;
@@ -43,6 +37,12 @@ const BLUE = [0, 0, 250];
 const PURPLE = [200, 0, 250];
 const NAVY = [0, 0, 128];
 const DARK_BLUE = [0, 0, 64];
+const CORAL = [255, 127, 80];
+const DARK_RED = [139, 0, 0];
+const CRIMSON = [220, 20, 60];
+const FUCHSIA = [255, 0, 255];
+const GOLD = [255, 215, 0];
+const INDIGO = [75, 0, 130];
 
 /* Murphy settings */
 const MURPHY_RADIUS = TILE_SIZE / 2;
@@ -81,12 +81,17 @@ const GRAVITY = false;
 const STONE_COLORS = {
   a: AQUA,
   b: BLUE,
+  c: CORAL,
+  d: DARK_RED,
+  e: CRIMSON,
+  f: FUCHSIA,
   g: GREEN,
+  h: GOLD,
+  i: INDIGO,
   n: NAVY,
   p: PURPLE,
   r: RED,
   o: ORANGE,
-  y: YELLOW,
 };
 
 // const TILE_DICTIONARY = {

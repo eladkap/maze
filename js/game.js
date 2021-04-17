@@ -318,6 +318,57 @@ class Game {
     }
   }
 
+  CheckStoneMergings(stone) {
+    let symbol = stone.symbol;
+
+    let stoneSet = new Set();
+    // Check row
+    let row = stone.Row;
+    let col = stone.Col;
+    while (
+      col >= 0 &&
+      this.map.GetValue(row, col) != null &&
+      this.map.GetValue(row, col).symbol == symbol
+    ) {
+      stoneSet.add(this.map.GetValue(row, col));
+      col--;
+    }
+    row = stone.Row;
+    col = stone.Col;
+    while (
+      col < this.map.Cols &&
+      this.map.GetValue(row, col) != null &&
+      this.map.GetValue(row, col).symbol == symbol
+    ) {
+      stoneSet.add(this.map.GetValue(row, col));
+      col++;
+    }
+
+    // Check col
+    row = stone.Row;
+    col = stone.Col;
+    while (
+      row >= 0 &&
+      this.map.GetValue(row, col) != null &&
+      this.map.GetValue(row, col).symbol == symbol
+    ) {
+      stoneSet.add(this.map.GetValue(row, col));
+      row--;
+    }
+    row = stone.Row;
+    col = stone.Col;
+    while (
+      row < this.map.Rows &&
+      this.map.GetValue(row, col) != null &&
+      this.map.GetValue(row, col).symbol == symbol
+    ) {
+      stoneSet.add(this.map.GetValue(row, col));
+      row++;
+    }
+    let stones = Array.from(stoneSet);
+    return Array.from(stones);
+  }
+
   InteractWithTile(tile, direction) {
     if (tile == null) {
       this.murphy.GotoDirection(direction);
@@ -343,11 +394,20 @@ class Game {
     if (className == 'Stone') {
       // this.HandleTilePushHorizotalOnly(tile, direction);
       this.HandleTilePushHorizotalOrVertical(tile, direction);
-      let mergedTiles = tile.CheckNeighbors();
-      if (mergedTiles.length > 0) {
-        // Sleep(1000);
+      let mergedTiles = this.CheckStoneMergings(tile);
+
+      if (mergedTiles.length > 1) {
         mergedTiles.forEach((mergedTile) => {
-          this.map.SetValue(mergedTile.Row, mergedTile.Col, null);
+          let diamond = new Infotron(
+            mergedTile.Row,
+            mergedTile.Col,
+            TILE_SIZE,
+            tileImages['infotron'],
+            INFOTRON_SYMBOL,
+            MURPHY_SPEED,
+            this.map
+          );
+          this.map.SetValue(mergedTile.Row, mergedTile.Col, diamond);
         });
       }
       return;
@@ -374,7 +434,6 @@ class Game {
     if (tile == null) {
       return false;
     }
-    console.log(tile);
     let className = tile.constructor.name;
     if (className == 'Infotron') {
       this.map.matrix[tile.Row][tile.Col] = null;
