@@ -1,0 +1,1 @@
+python generate_level.py -o 01-001 -l 24 -w 12 -g "2,3" -s "2a,3b,2c,4d,2e" -z 0.05 -y 0 -p "1,1" -e "1,20"

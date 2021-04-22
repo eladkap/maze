@@ -1,6 +1,6 @@
-/*
-This class represents the game camera that tracking the player
-*/
+/**
+ * This class represents the game camera tracking the player
+ */
 
 class Camera {
   /*

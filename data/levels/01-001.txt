@@ -1,0 +1,16 @@
+title=---Alexandrite---
+gravity=0
+exit=(1,11)
+F F F F F F F F F F F F F F F F F F F F F F F
+F M _ _ _ _ _ _ _ W _ _ _ _ _ _ _ _ _ _ _ E F
+F _ _ c M _ _ _ _ W _ _ _ _ _ _ W _ b _ _ _ F
+F _ _ _ _ _ _ _ _ Z _ _ _ _ _ _ W _ _ _ _ _ F
+F _ _ c _ W _ _ _ W _ _ Z _ _ _ W _ b _ _ _ F
+F W W W W W W W W W W W W W W W W _ _ _ _ _ F
+F _ _ _ W Z _ _ W _ _ _ W _ _ _ _ _ _ _ _ _ F
+F _ Z _ W _ _ _ W _ _ _ W _ _ _ _ _ _ _ _ _ F
+F _ _ _ W Z _ _ W _ _ _ W _ _ _ _ _ _ _ _ _ F
+F _ _ _ W _ W W W _ _ _ W _ _ _ _ _ _ _ _ _ F
+F _ _ _ _ _ _ _ _ _ _ _ Z _ _ _ _ _ _ _ _ _ F
+F _ _ _ _ _ _ _ _ _ _ _ Z _ _ _ _ _ _ _ _ _ F
+F F F F F F F F F F F F F F F F F F F F F F F

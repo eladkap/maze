@@ -34,6 +34,7 @@ class Entity extends Tile {
 
   //#region Methods
   Draw(refPos) {
+    /* Draws the entity from ref position (camera position) */
     if (this.visible) {
       noStroke();
       textSize(this.width * 0.9);
@@ -52,6 +53,7 @@ class Entity extends Tile {
   }
 
   ResetMovement() {
+    /* Reset lerping movement after moving an entire tile */
     this.lerpingCount = 0;
     this.isLerping = false;
     this.lerpUnit = lerpSpeed;
@@ -59,6 +61,7 @@ class Entity extends Tile {
   }
 
   Update() {
+    /* Update entity position */
     if (this.isLerping) {
       let x = lerp(
         this.pos.x,

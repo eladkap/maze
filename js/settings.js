@@ -94,31 +94,6 @@ const STONE_COLORS = {
   o: ORANGE,
 };
 
-// const TILE_DICTIONARY = {
-//   0: TILE_EMPTY,
-//   1: TILE_ZONK,
-//   2: TILE_BASE,
-//   3: TILE_MURPHY,
-//   4: TILE_INFOTRON,
-//   5: TILE_WALL,
-//   6: TILE_FRAME,
-//   7: TILE_EXIT,
-//   8: TILE_BOMB_ORANGE,
-//   9: TILE_RIGHT_PORT,
-//   10: TILE_DOWN_PORT,
-//   11: TILE_LEFT_PORT,
-//   12: TILE_UP_PORT,
-//   17: TILE_SNIKSNAK,
-//   18: TILE_BOMB_YELLOW,
-//   19: TILE_TERMINAL,
-//   20: TILE_BOMB_RED,
-//   21: TILE_VER_PORT,
-//   22: TILE_HOR_PORT,
-//   23: TILE_CROSS_PORT,
-//   24: TILE_ELECTRON,
-//   25: TILE_BUG,
-// };
-
 /* Scoreboard settings */
 const SCORE_BOARD_POS_X = SCREEN_WIDTH * 0.05;
 const SCORE_BOARD_POS_Y = SCREEN_HEIGHT * 0.1;
@@ -146,13 +121,8 @@ const TILE_IMAGE_DICT = {
   exit_clear: 'images/modern/exit_clear.png',
 };
 
-const DEMO_EASY_LEVEL_FILE = 'data/level_demo_easy.txt';
-const DEMO_HARD_LEVEL_FILE = 'data/level_demo_hard.txt';
+const DEMO_LEVEL_FILE = 'data/level_demo_hard.txt'; // 'data/level_demo_hard.txt'
 const LEVELS_DATA_FILE_PATH = 'data/LEVELS.DAT';
-
-const BYTES_PER_LEVEL = 1536;
-
-const SPACE_KEY = 32;
 
 const LOAD_DEMO_LEVEL = true;
 

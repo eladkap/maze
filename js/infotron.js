@@ -1,3 +1,8 @@
+/**
+ * This class represents diamond the player should collect (also called infotron)
+ * Moving tile (falls when gravity is on)
+ */
+
 class Infotron extends Entity {
   constructor(row, col, width, image, symbol, speed, map) {
     super(row, col, width, image, symbol, speed, map);

@@ -428,6 +428,7 @@ class Game {
     console.log('Exit level');
     this.murphy.Hide();
     this.scoreBoard.SetMessage('Level completed!');
+    game.SetState(GAME_LEVEL_COMPLETED);
     noLoop();
   }
 

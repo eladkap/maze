@@ -31,7 +31,7 @@ function LoadConfig() {
 }
 
 function preload() {
-  demoLevel = LoadLevelFromTileMap(DEMO_EASY_LEVEL_FILE);
+  demoLevel = LoadLevelFromTileMap(DEMO_LEVEL_FILE);
   levelDataObj = LoadLevelsDataFile(LEVELS_DATA_FILE_PATH);
   LoadImages();
   // LoadConfig();
