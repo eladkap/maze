@@ -1,17 +1,42 @@
 class Level {
-  constructor(number, title, tileMap, infotronsRequired, gravity) {
+  constructor(levelTextLines) {
     /*
-    number: level number
+    ordering: level number
+    size: level dimensions
     title: level number
     tileMap: tile map
-    infotronsRequired: required infotrons to complete the level
+    diamondsRequired: required diamonds to complete the level
     gravity: true if there is gravity or false otherwise
      */
-    this.number = number;
-    this.title = title;
-    this.tileMap = tileMap;
-    this.infotronsRequired = infotronsRequired;
-    this.gravity = gravity;
+    this.levelTextLines = levelTextLines;
+    this.ordering = null;
+    this.size = null;
+    this.tileMap = null;
+    this.title = null;
+    this.diamondsRequired = null;
+    this.gravity = false;
+  }
+
+  Set() {
+    let lines = this.levelTextLines;
+
+    // ordering
+    this.ordering = lines[0].split('=')[1];
+
+    // dimensions
+    let dimensions = lines[1].split('=')[1];
+    let sizeStr = dimensions.split(',');
+    this.size = [int(sizeStr[0]), int(sizeStr[1])];
+
+    // title
+    this.title = lines[1].split('=')[1];
+
+    // gravity
+    this.gravity =
+      lines[5].split('=')[1].toLowerCase() == 'true' ? true : false;
+
+    // tile map
+    this.tileMap = lines.slice(6, 6 + this.size[0]);
   }
 
   get Number() {

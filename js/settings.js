@@ -121,9 +121,11 @@ const TILE_IMAGE_DICT = {
   exit_clear: 'images/modern/exit_clear.png',
 };
 
-const DEMO_LEVEL_FILE = 'data/level_demo_hard.txt'; // 'data/level_demo_hard.txt'
+const DEMO_LEVEL_FILE = 'data/level1.txt'; // 'data/level_demo_hard.txt'
 const LEVELS_DATA_FILE_PATH = 'data/LEVELS.DAT';
 
 const LOAD_DEMO_LEVEL = true;
+
+const SPACE_KEY = 32;
 
 const DEBUG_FLAG = true;

@@ -31,7 +31,7 @@ function LoadConfig() {
 }
 
 function preload() {
-  demoLevel = LoadLevelFromTileMap(DEMO_LEVEL_FILE);
+  demoLevel = LoadLevelFromFile(DEMO_LEVEL_FILE);
   levelDataObj = LoadLevelsDataFile(LEVELS_DATA_FILE_PATH);
   LoadImages();
   // LoadConfig();
@@ -42,15 +42,16 @@ function setup() {
   createCanvas(SCREEN_WIDTH, SCREEN_HEIGHT);
   frameRate(FPS);
   imageMode(CENTER);
-  let level = null;
+  // let level = null;
   if (LOAD_DEMO_LEVEL) {
-    level = demoLevel;
+    // level = demoLevel;
+    demoLevel.Set();
   } else {
     let chosenLevelIndex = int(window.location.href.split('#')[1]);
-    level = LoadLevel(levelDataObj, chosenLevelIndex);
+    demoLevel = LoadLevel(levelDataObj, chosenLevelIndex);
   }
 
-  game = new Game(level);
+  game = new Game(demoLevel);
   game.Setup();
   noLoop();
 }

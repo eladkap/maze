@@ -1,0 +1,18 @@
+ordering=01-001
+dimensions=12,30
+title=Alexandrite
+player=1,1
+exit=1,20
+gravity=True
+F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F
+F M _ _ _ e _ _ d _ _ _ _ _ _ _ _ _ _ _ E _ _ _ _ _ _ Z _ F
+F _ _ _ _ _ _ _ _ _ W _ _ _ _ Z _ _ _ _ W _ _ _ _ _ _ _ _ F
+F _ _ _ _ _ _ _ _ _ W _ _ _ _ _ _ _ b _ W _ _ _ _ _ _ _ _ F
+F _ _ _ _ _ _ d _ _ W _ _ _ _ _ _ _ a _ _ _ _ _ _ _ _ Z _ F
+F _ c _ _ _ _ _ _ _ W _ _ _ _ _ b _ _ _ W _ _ _ _ _ _ _ _ F
+F W _ W W W W W W W W W W W W _ W W W W W W W W W _ W W W F
+F _ Z _ _ _ _ _ _ d _ _ _ _ _ _ _ _ _ _ _ Z _ _ _ _ b _ _ F
+F _ _ _ Z _ e _ d _ W _ _ _ _ _ _ _ _ _ W _ _ _ _ _ Z _ _ F
+F _ _ _ _ _ _ _ _ _ W _ _ _ _ _ _ _ _ _ W _ _ _ _ _ _ _ _ F
+F _ _ _ _ _ _ _ _ _ W _ _ Z _ _ _ _ _ _ W _ _ _ a _ _ _ c F
+F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F

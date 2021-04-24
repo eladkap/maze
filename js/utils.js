@@ -13,9 +13,9 @@ function ConsoleLog(msg) {
   }
 }
 
-function LoadLevelFromTileMap(tileMapFile) {
-  let tileMapText = ReadTextFile(tileMapFile);
-  return new Level(0, '---DEMO LEVEL---', tileMapText, 0, false);
+function LoadLevelFromFile(tileMapFile) {
+  let levelTextLines = ReadTextFile(tileMapFile);
+  return new Level(levelTextLines);
 }
 
 function LoadLevelsDataFile(binFile) {
